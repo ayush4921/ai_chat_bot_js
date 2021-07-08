@@ -532,5 +532,10 @@ function getResponse(word) {
   const result = fuse.search(word);
   console.log(result);
   let final_response_to_return = result[0]["item"]["responses"][0];
+  if (final_response_to_return) {
+    //pass
+  } else {
+    final_response_to_return = "Sorry.. Can you please rephrase the question?";
+  }
   return final_response_to_return;
 }
