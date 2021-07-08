@@ -530,6 +530,7 @@ function getResponse(word) {
 
   const fuse = new Fuse(list_of_responses, options);
   const result = fuse.search(word);
+  console.log(result);
   let final_response_to_return = result[0]["item"]["responses"][0];
   return final_response_to_return;
 }
