@@ -1,31 +1,6 @@
-var html_to_append = `<div class="floating-chat">
-    <i class="fa fa-comments" aria-hidden="true"></i>
-    <div class="chat">
-        <div class="chat-box-header">
-            LionBot
-            <span class="chat-box-toggle"><button>
-              <i class="fa fa-times" aria-hidden="true"></i>
-            </button>   </span>
-          </div>
-        <ul class="messages">
-            <li class="self">Hi! How can I help you?</li>
-        </ul>
-        <div class="chat-input">      
-            <div placeholder="Send a message..." class="text-box" contenteditable="true" disabled="true" id="chat-input" placeholder="Send a message..."></div>
-            <button id="sendMessage" type="submit" class="chat-submit"><i class="material-icons" style="color: #5a5eb9;">send</i></button>
-
-        </div>
-        
-    </div>
-    </div>
-`;
-
-var styles_to_append = `
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.css'>
-<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-<style>
+var html_to_append = `
+<div>
+<style scoped>
 @import "https://fonts.googleapis.com/css?family=Noto+Sans";
 * {
   box-sizing: border-box;
@@ -338,6 +313,35 @@ z @keyframes show-chat-even {
 }
 
 </style>
+<div class="floating-chat">
+    <i class="fa fa-comments" aria-hidden="true"></i>
+    <div class="chat">
+        <div class="chat-box-header">
+            LionBot
+            <span class="chat-box-toggle"><button>
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>   </span>
+          </div>
+        <ul class="messages">
+            <li class="self">Hi! How can I help you?</li>
+        </ul>
+        <div class="chat-input">      
+            <div placeholder="Send a message..." class="text-box" contenteditable="true" disabled="true" id="chat-input" placeholder="Send a message..."></div>
+            <button id="sendMessage" type="submit" class="chat-submit"><i class="material-icons" style="color: #5a5eb9;">send</i></button>
+
+        </div>
+        
+    </div>
+    </div>
+</div>
+`;
+
+var styles_to_append = `
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
 
 
 `;
