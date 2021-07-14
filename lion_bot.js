@@ -14,7 +14,7 @@ var html_to_append = `
   color: white;
   position: fixed;
   bottom: 50px;
-  left: 50px;
+  left: 15px;
   width: 50px;
   height: 50px;
   transition: all 250ms ease-out;
@@ -49,8 +49,8 @@ var html_to_append = `
 @media only screen and (max-width: 768px) {
   .floating-chat.expand {
     width: 80%;
-    max-height: 60%;
-    height: 60%;
+    max-height: 70%;
+    height: 70%;
     border-radius: 5px;
     cursor: auto;
     opacity: 1;
