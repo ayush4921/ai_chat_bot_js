@@ -39,10 +39,9 @@ var styles_to_append = `
   color: white;
   position: fixed;
   bottom: 50px;
-  right: 50px;
+  left: 50px;
   width: 50px;
   height: 50px;
-  transform: translateY(70px);
   transition: all 250ms ease-out;
   border-radius: 50%;
   opacity: 0;
@@ -361,7 +360,7 @@ if (!myStorage.getItem("chatID")) {
 setTimeout(function () {
   element.addClass("enter");
 }, 1000);
-
+$(document).ready(openElement);
 element.click(openElement);
 
 function openElement() {
@@ -530,9 +529,8 @@ function getResponse(word) {
 
   const fuse = new Fuse(list_of_responses, options);
   const result = fuse.search(word);
-  console.log(result);
   let final_response_to_return = result[0]["item"]["responses"][0];
-  if (final_response_to_return) {
+  if (final_response_to_return && result[0]["score"] < 0.1) {
     //pass
   } else {
     final_response_to_return = "Sorry.. Can you please rephrase the question?";
