@@ -317,7 +317,7 @@ z @keyframes show-chat-even {
     <i class="fa fa-comments" aria-hidden="true"></i>
     <div class="chat">
         <div class="chat-box-header">
-            LionBot
+            Ask LB Virtual Assistant
             <span class="chat-box-toggle"><button>
               <i class="fa fa-times" aria-hidden="true"></i>
             </button>   </span>
@@ -522,6 +522,58 @@ function getResponse(word) {
       tag: "Miscellineous",
       patterns: ["How can I meet the team", "meet the team", "How I meet team"],
       responses: ["Meeting the team is currently not supported"],
+      context: [""],
+    },
+    {
+      tag: "ad-hoc volunteering",
+      patterns: [
+        "how to do ad-hoc volunteering",
+        "how I give daily necessities to seniors.",
+        "volunteering give out to seniors",
+      ],
+      responses: [
+        "Please send your message enquiry to volunteering@lb.org.sg.",
+      ],
+      context: [""],
+    },
+    {
+      tag: "mass event",
+      patterns: [
+        "how do I collaborate with LB on a mass event",
+        "My company wish to collaborate with LB on a mass event",
+        "want to collaborate on mass event",
+      ],
+      responses: ["Please send your message enquiry to event@lb.org.sg."],
+      context: [""],
+    },
+    {
+      tag: "donate",
+      patterns: [
+        "how do I donate to LB",
+        "donate to lion befrienders",
+        "How can I donate?",
+      ],
+      responses: [
+        "Visit https://www.lionsbefrienders.org.sg/donate/ to support us. ",
+      ],
+      context: [""],
+    },
+    {
+      tag: "partner",
+      patterns: [
+        "I wish to partner LB on a CSR project. How do I go about that?",
+        "partner on CSR project",
+        "partner with LB on CSR project",
+      ],
+      responses: [
+        "Visit https://www.lionsbefrienders.org.sg/partnerships/ for more info.",
+      ],
+      context: [""],
+    },
+    {
+      tag: "help",
+      patterns: ["I want to help", "how do I help?", "help how to"],
+      responses: ["Is there something that I can help you with?"],
       context: [""],
     },
   ];
