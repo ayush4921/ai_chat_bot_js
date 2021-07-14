@@ -14,7 +14,7 @@ var html_to_append = `
   color: white;
   position: fixed;
   bottom: 50px;
-  left: 15px;
+  left: 50px;
   width: 50px;
   height: 50px;
   transition: all 250ms ease-out;
@@ -27,10 +27,7 @@ var html_to_append = `
     0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
-.floating-chat.enter:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  opacity: 1;
-}
+
 .floating-chat.enter {
   transform: translateY(0);
   opacity: 0.6;
@@ -257,6 +254,10 @@ z @keyframes show-chat-even {
   font-size: 20px;
   padding-top: 17px;
 }
+.material-icons{
+  vertical-align: middle;
+  line-height: 35px;
+}
 #chat-input {
   background: #f4f7f9;
   width: 100%;
@@ -305,6 +306,8 @@ z @keyframes show-chat-even {
   border-radius: 50%;
   color: #5a5eb9;
   height: 35px;
+  line-height: 35px;
+  text-align: center;
 }
 .chat-box-toggle {
   float: right;
