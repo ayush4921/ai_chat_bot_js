@@ -509,8 +509,12 @@ function onMetaAndEnter(event) {
   }
 }
 
-if (url == "https://www.lionsbefrienders.org.sg/") {
-  document.getElementById("__deeda__Container").style.display = "none";
+if (
+  url == "https://www.lionsbefrienders.org.sg/" &&
+  !/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
+) {
   openElement();
   element.find(".chat-box-header button").click(closeElement);
 }
