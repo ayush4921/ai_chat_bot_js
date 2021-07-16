@@ -43,8 +43,8 @@ var html_to_append = `
 @media only screen and (max-width: 768px) {
   .floating-chat.expand {
     width: 80%;
-    max-height: 70%;
-    height: 70%;
+    max-height: 60%;
+    height: 60%;
     border-radius: 5px;
     cursor: auto;
     opacity: 1;
