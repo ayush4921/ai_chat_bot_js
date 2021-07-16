@@ -137,7 +137,7 @@ function getResponse(word) {
         "volunteering how to",
       ],
       responses: [
-        "Visit https://www.lionsbefrienders.org.sg/volunteer-programmes/ to find out ",
+        'Visit <a target="_parent" href="https://www.lionsbefrienders.org.sg/volunteer-programmes/" style="color:white;">Link</a> to find out ',
       ],
       context: [""],
     },
@@ -166,7 +166,7 @@ function getResponse(word) {
         "senior activity center joining",
       ],
       responses: [
-        "Visit https://www.lionsbefrienders.org.sg/contact-us/ to find the nearest centre to your place and dial in to the specific centre to enquire.",
+        'Visit  <a target="_parent" href="https://www.lionsbefrienders.org.sg/contact-us/" style="color:white;">Link</a> to find the nearest centre to your place and dial in to the specific centre to enquire.',
       ],
       context: [""],
     },
@@ -206,7 +206,7 @@ function getResponse(word) {
         "How can I donate?",
       ],
       responses: [
-        "Visit https://www.lionsbefrienders.org.sg/donate/ to support us. ",
+        'Visit <a target="_parent" href="https://www.lionsbefrienders.org.sg/donate/" style="color:white;">Link</a> to support us.',
       ],
       context: [""],
     },
@@ -218,7 +218,7 @@ function getResponse(word) {
         "partner with LB on CSR project",
       ],
       responses: [
-        "Visit https://www.lionsbefrienders.org.sg/partnerships/ for more info.",
+        'Visit <a target="_parent" href="https://www.lionsbefrienders.org.sg/partnerships/" style="color:white;">Link</a> for more info.',
       ],
       context: [""],
     },
@@ -226,6 +226,18 @@ function getResponse(word) {
       tag: "help",
       patterns: ["I want to help", "how do I help?", "help how to"],
       responses: ["Is there something that I can help you with?"],
+      context: [""],
+    },
+    {
+      tag: "work",
+      patterns: [
+        "I want to work at lion befrienders",
+        "how do I work here?",
+        "career at lion befrienders",
+      ],
+      responses: [
+        'Visit  <a target="_parent" href="https://www.lionsbefrienders.org.sg/careers/" style="color:white;">Link</a> for the available job opportunities.',
+      ],
       context: [""],
     },
   ];
