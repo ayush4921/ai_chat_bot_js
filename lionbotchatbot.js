@@ -395,7 +395,7 @@ function closeElement() {
     element.find(".chat").removeClass("enter").show();
     element.click(openElement);
   }, 500);
-  document.getElementById("__deeda__Container").style.display = "visible";
+  document.getElementById("__deeda__Container").style.display = "block";
 }
 
 function createUUID() {
