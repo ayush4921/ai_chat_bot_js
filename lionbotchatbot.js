@@ -377,6 +377,7 @@ function openElement() {
   element.find(".chat-box-header button").click(closeElement);
   element.find("#sendMessage").click(sendNewMessage);
   messages.scrollTop(messages.prop("scrollHeight"));
+  $("#__deeda__Button").style.display = "none";
 }
 
 function closeElement() {
@@ -394,6 +395,7 @@ function closeElement() {
     element.find(".chat").removeClass("enter").show();
     element.click(openElement);
   }, 500);
+  $("#__deeda__Button").style.display = "visible";
 }
 
 function createUUID() {
