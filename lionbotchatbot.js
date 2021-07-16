@@ -377,7 +377,7 @@ function openElement() {
   element.find(".chat-box-header button").click(closeElement);
   element.find("#sendMessage").click(sendNewMessage);
   messages.scrollTop(messages.prop("scrollHeight"));
-  document.getElementById("__deeda__Button").style.display = "none";
+  document.getElementById("__deeda__Container").style.display = "none";
 }
 
 function closeElement() {
@@ -395,7 +395,7 @@ function closeElement() {
     element.find(".chat").removeClass("enter").show();
     element.click(openElement);
   }, 500);
-  document.getElementById("__deeda__Button").style.display = "visible";
+  document.getElementById("__deeda__Container").style.display = "visible";
 }
 
 function createUUID() {
