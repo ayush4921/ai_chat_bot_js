@@ -13,7 +13,7 @@ var html_to_append = `
   color: white;
   position: fixed;
   bottom: 50px;
-  left: 50px;
+  left: 10px;
   width: 50px;
   height: 50px;
   transition: all 250ms ease-out;
