@@ -33,7 +33,7 @@ var html_to_append = `
 }
 .floating-chat.expand {
   width: 365px;
-  max-height: 500px;
+  max-height: 70%;
   height: 500px;
   border-radius: 5px;
   cursor: auto;
