@@ -1,5 +1,5 @@
 var html_to_append = `
-<div style="all: revert">
+<div style="all:unset;">
 <style scoped>
 @import "https://fonts.googleapis.com/css?family=Noto+Sans";
 * {
@@ -63,6 +63,8 @@ var html_to_append = `
   text-transform: uppercase;
   border-radius: 3px;
   cursor: pointer;
+  padding:0;
+  margin:0;
 }
 #stylebg {
   opacity: 1;
@@ -309,7 +311,7 @@ z @keyframes show-chat-even {
   cursor: pointer;
 }
 </style>
-<div class="floating-chat">
+<div class="floating-chat" >
     <i class="fa fa-comments" aria-hidden="true"></i>
     <div class="chat">
         <div class="chat-box-header">
@@ -449,10 +451,10 @@ function onMetaAndEnter(event) {
   }
 }
 
-if (url == "https://www.lionsbefrienders.org.sg/") {
+/*if (url == "https://www.lionsbefrienders.org.sg/") {
   openElement();
   element.find(".chat-box-header button").click(closeElement);
-}
+}*/
 function getResponse(word) {
   list_of_responses = [
     {
