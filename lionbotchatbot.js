@@ -425,14 +425,70 @@ function sendNewMessage() {
   );
 
   if (!newMessage) return;
+  if (newMessage == "q1" || newMessage == "Q1" || newMessage == "1") {
+    send_message_for_question(messagesContainer, userInput, 0);
 
-  let final_response = getResponse(newMessage);
-  console.log(final_response);
+    return;
+  }
+  if (newMessage == "q2" || newMessage == "Q2" || newMessage == "2") {
+    send_message_for_question(messagesContainer, userInput, 1);
+    return;
+  }
+  window.final_response = getResponse(newMessage);
+  if (window.final_response[0]["question"] != "hi there") {
+    messagesContainer.append(
+      [
+        '<li class="self"> Q1) ',
+        final_response[0]["question"],
+        "<br>",
+        "<br>",
+
+        "Q2) ",
+        final_response[1]["question"],
+        "<br>",
+        "</li>",
+      ].join("")
+    );
+    clear_input(userInput, messagesContainer);
+    messagesContainer.append(
+      [
+        '<li class="self" id="questionare"> <span id="answer1" onclick="return_answer(0)">Q1</span>&nbsp; &nbsp;<span id="answer2" onclick="return_answer(1)">Q2</span> </li>',
+      ].join("")
+    );
+  } else {
+    messagesContainer.append(
+      ['<li class="self">', final_response[0]["response"], "</li>"].join("")
+    );
+  }
+  clear_input(userInput, messagesContainer);
+}
+
+function send_message_for_question(messagesContainer, userInput, question) {
   messagesContainer.append(
-    ['<li class="self">', final_response, "</li>"].join("")
+    [
+      '<li class="self">',
+      window.final_response[question]["response"],
+      "</li>",
+    ].join("")
   );
+  clear_input(userInput, messagesContainer);
+  window.final_response = "";
+}
 
-  // clean out old message
+function return_answer(question) {
+  var userInput = $(".text-box");
+  var messagesContainer = $(".messages");
+  if (window.final_response != "") {
+    messagesContainer.append(
+      ['<li class="other">Q', question + 1, "</li>"].join("")
+    );
+    clear_input(userInput, messagesContainer);
+    send_message_for_question(messagesContainer, userInput, question);
+    document.getElementById("questionare").style.display = "none";
+  }
+}
+
+function clear_input(userInput, messagesContainer) {
   userInput.html("");
   // focus on input
   userInput.focus();
@@ -580,6 +636,7 @@ function getResponse(word) {
         "partner",
         "CSR",
         "CSR project partner",
+        "I want to do CSR",
       ],
       responses: [
         'Visit <a target="_parent" href="https://www.lionsbefrienders.org.sg/partnerships/" style="color:white;">Link</a> for more info.',
@@ -619,12 +676,16 @@ function getResponse(word) {
 
   const fuse = new Fuse(list_of_responses, options);
   const result = fuse.search(word);
-  let final_response_to_return = result[0]["item"]["responses"][0];
-  console.log(result[0]["score"]);
-  if (final_response_to_return && result[0]["score"] < 0.5) {
-    //pass
-  } else {
-    final_response_to_return = "Sorry.. Can you please rephrase the question?";
-  }
-  return final_response_to_return;
+  console.log(result);
+  let dict_to_return = [
+    {
+      question: result[0]["item"]["patterns"][0],
+      response: result[0]["item"]["responses"][0],
+    },
+    {
+      question: result[1]["item"]["patterns"][0],
+      response: result[1]["item"]["responses"][0],
+    },
+  ];
+  return dict_to_return;
 }
