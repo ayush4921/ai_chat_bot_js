@@ -532,6 +532,9 @@ function getResponse(word) {
         "how to do ad-hoc volunteering",
         "how I give daily necessities to seniors.",
         "volunteering give out to seniors",
+        "adhoc",
+        "ad-hoc volunteering",
+        "volunteer ad-hoc",
       ],
       responses: [
         "Please send your message enquiry to volunteering@lb.org.sg.",
@@ -544,6 +547,10 @@ function getResponse(word) {
         "how do I collaborate with LB on a mass event",
         "My company wish to collaborate with LB on a mass event",
         "want to collaborate on mass event",
+        "collaborate",
+        "mass event organisation",
+        "mass event",
+        "even organize with lion group",
       ],
       responses: ["Please send your message enquiry to event@lb.org.sg."],
       context: [""],
@@ -554,6 +561,10 @@ function getResponse(word) {
         "how do I donate to LB",
         "donate to lion befrienders",
         "How can I donate?",
+        "donate",
+        "how to donate",
+        "donate to lionsbefrienders",
+        "donate now",
       ],
       responses: [
         'Visit <a target="_parent" href="https://www.lionsbefrienders.org.sg/donate/" style="color:white;">Link</a> to support us.',
@@ -566,6 +577,9 @@ function getResponse(word) {
         "I wish to partner LB on a CSR project. How do I go about that?",
         "partner on CSR project",
         "partner with LB on CSR project",
+        "partner",
+        "CSR",
+        "CSR project partner",
       ],
       responses: [
         'Visit <a target="_parent" href="https://www.lionsbefrienders.org.sg/partnerships/" style="color:white;">Link</a> for more info.',
@@ -574,7 +588,7 @@ function getResponse(word) {
     },
     {
       tag: "help",
-      patterns: ["I want to help", "how do I help?", "help how to"],
+      patterns: ["I want to help", "how do I help?", "help how to", "help"],
       responses: ["Is there something that I can help you with?"],
       context: [""],
     },
@@ -585,6 +599,11 @@ function getResponse(word) {
         "how do I work here?",
         "career at lion befrienders",
         "I want to work for you",
+        "work at lion befrienders",
+        "work now at LB",
+        "work at now at lion befrienders",
+        "career at LB",
+        "careers",
       ],
       responses: [
         'Visit  <a target="_parent" href="https://www.lionsbefrienders.org.sg/careers/" style="color:white;">Link</a> for the available job opportunities.',
@@ -602,7 +621,7 @@ function getResponse(word) {
   const result = fuse.search(word);
   let final_response_to_return = result[0]["item"]["responses"][0];
   console.log(result[0]["score"]);
-  if (final_response_to_return && result[0]["score"] < 0.1) {
+  if (final_response_to_return && result[0]["score"] < 0.5) {
     //pass
   } else {
     final_response_to_return = "Sorry.. Can you please rephrase the question?";
