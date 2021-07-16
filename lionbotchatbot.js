@@ -510,6 +510,7 @@ function onMetaAndEnter(event) {
 }
 
 if (url == "https://www.lionsbefrienders.org.sg/") {
+  document.getElementById("__deeda__Container").style.display = "none";
   openElement();
   element.find(".chat-box-header button").click(closeElement);
 }
