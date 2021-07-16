@@ -8,7 +8,11 @@ if (!myStorage.getItem("chatID")) {
 setTimeout(function () {
   element.addClass("enter");
 }, 1000);
-$(document).ready(openElement);
+var url =
+  window.location != window.parent.location
+    ? document.referrer
+    : document.location.href;
+
 element.click(openElement);
 
 function openElement() {
@@ -97,6 +101,10 @@ function onMetaAndEnter(event) {
   }
 }
 
+if (url == "https://www.lionsbefrienders.org.sg/") {
+  openElement();
+  element.find(".chat-box-header button").click(closeElement);
+}
 function getResponse(word) {
   list_of_responses = [
     {
