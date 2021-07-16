@@ -6,6 +6,7 @@ var html_to_append = `
   box-sizing: border-box;
 }
 .floating-chat {
+  z-index:9999;
   cursor: pointer;
   display: flex;
   align-items: center;
