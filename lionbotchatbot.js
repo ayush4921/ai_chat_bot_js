@@ -451,10 +451,10 @@ function onMetaAndEnter(event) {
   }
 }
 
-/*if (url == "https://www.lionsbefrienders.org.sg/") {
+if (url == "https://www.lionsbefrienders.org.sg/") {
   openElement();
   element.find(".chat-box-header button").click(closeElement);
-}*/
+}
 function getResponse(word) {
   list_of_responses = [
     {
