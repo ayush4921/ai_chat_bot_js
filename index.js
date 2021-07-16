@@ -234,6 +234,7 @@ function getResponse(word) {
         "I want to work at lion befrienders",
         "how do I work here?",
         "career at lion befrienders",
+        "I want to work for you",
       ],
       responses: [
         'Visit  <a target="_parent" href="https://www.lionsbefrienders.org.sg/careers/" style="color:white;">Link</a> for the available job opportunities.',
@@ -250,6 +251,7 @@ function getResponse(word) {
   const fuse = new Fuse(list_of_responses, options);
   const result = fuse.search(word);
   let final_response_to_return = result[0]["item"]["responses"][0];
+  console.log(result[0]["score"]);
   if (final_response_to_return && result[0]["score"] < 0.1) {
     //pass
   } else {
