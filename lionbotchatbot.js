@@ -5,8 +5,24 @@ var html_to_append = `
 * {
   box-sizing: border-box;
 }
+.bubble {
+  height: 60px;
+  position: fixed;
+  bottom: 150px;
+  left: 20px;
+  width: 200px;
+  color: rgb(13, 29, 98);
+  margin: 10px;
+  line-height: 60px;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Open Sans";
+  text-align: center;
+  background: rgb(234, 236, 237);
+  border-radius: 15px 15px 15px 0px;
+}
+
 .floating-chat {
-  z-index:9999;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -14,9 +30,9 @@ var html_to_append = `
   color: white;
   position: fixed;
   bottom: 50px;
-  left: 10px;
-  width: 50px;
-  height: 50px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
   transition: all 250ms ease-out;
   border-radius: 50%;
   opacity: 0;
@@ -26,9 +42,10 @@ var html_to_append = `
   box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6),
     0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
+
 .floating-chat.enter {
   transform: translateY(0);
-  opacity: 0.6;
+  opacity: 1;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.14);
 }
 .floating-chat.expand {
@@ -312,10 +329,13 @@ z @keyframes show-chat-even {
   cursor: pointer;
 }
 </style>
-<div class="floating-chat" >
-    <i class="fa fa-comments" aria-hidden="true"></i>
-    <div class="chat">
-        <div class="chat-box-header">
+<div class="bubble">
+           <p>Hello! How can I help you?</p>
+       </div>
+      <div class="floating-chat">
+         <img class="avatar" src="https://og-blog-css.outgrow.co/blog/wp-content/uploads/2019/01/robo_small.gif?x65579" style="max-width:120px;max-height:120px;">
+         <div class="chat">
+            <div class="chat-box-header">
             Ask LB Virtual Assistant
             <span class="chat-box-toggle"><button>
               <i class="fa fa-times" aria-hidden="true"></i>
@@ -350,6 +370,7 @@ body_tag = document.getElementsByTagName("body")[0];
 body_tag.insertAdjacentHTML("beforeend", html_to_append);
 
 var element = $(".floating-chat");
+var bubble = $(".bubble");
 var myStorage = localStorage;
 
 if (!myStorage.getItem("chatID")) {
@@ -369,7 +390,8 @@ element.click(openElement);
 function openElement() {
   var messages = element.find(".messages");
   var textInput = element.find(".text-box");
-  element.find(">i").hide();
+  element.find(".avatar").hide();
+  bubble.hide();
   element.addClass("expand");
   element.find(".chat").addClass("enter");
   var strLength = textInput.val().length * 2;
@@ -378,12 +400,11 @@ function openElement() {
   element.find(".chat-box-header button").click(closeElement);
   element.find("#sendMessage").click(sendNewMessage);
   messages.scrollTop(messages.prop("scrollHeight"));
-  document.getElementById("__deeda__Container").style.display = "none";
 }
 
 function closeElement() {
   element.find(".chat").removeClass("enter").hide();
-  element.find(">i").show();
+  element.find(".avatar").show();
   element.removeClass("expand");
   element.find(".header button").off("click", closeElement);
   element.find("#sendMessage").off("click", sendNewMessage);
@@ -396,7 +417,6 @@ function closeElement() {
     element.find(".chat").removeClass("enter").show();
     element.click(openElement);
   }, 500);
-  document.getElementById("__deeda__Container").style.display = "block";
 }
 
 function createUUID() {
@@ -510,15 +530,6 @@ function onMetaAndEnter(event) {
   }
 }
 
-if (
-  url == "https://www.lionsbefrienders.org.sg/" &&
-  !/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent
-  )
-) {
-  openElement();
-  element.find(".chat-box-header button").click(closeElement);
-}
 function getResponse(word) {
   list_of_responses = [
     {
