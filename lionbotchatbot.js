@@ -371,6 +371,7 @@ body_tag.insertAdjacentHTML("beforeend", html_to_append);
 
 var element = $(".floating-chat");
 var bubble = $(".bubble");
+bubble.hide();
 var myStorage = localStorage;
 
 if (!myStorage.getItem("chatID")) {
@@ -417,6 +418,15 @@ function closeElement() {
     element.find(".chat").removeClass("enter").show();
     element.click(openElement);
   }, 500);
+}
+
+if (
+  url == "https://www.lionsbefrienders.org.sg/" &&
+  !/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
+) {
+  bubble.show();
 }
 
 function createUUID() {
