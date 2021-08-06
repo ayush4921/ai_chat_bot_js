@@ -198,7 +198,7 @@ var html_to_append = `
 }
 .floating-chat .chat .messages li.self:before {
   left: -45px;
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkjHasMpOu0s6QWpEvTNwdEwym4bz4lijL2Q&usqp=CAU);
+  background-image: url(https://ayush4921.github.io/ai_chat_bot_js/lb_logo.png);
 }
 .floating-chat .chat .messages li.self:after {
   left: -10px;
