@@ -1,4 +1,5 @@
 var element = $(".floating-chat");
+var bubble = $(".bubble");
 var myStorage = localStorage;
 
 if (!myStorage.getItem("chatID")) {
@@ -14,11 +15,13 @@ var url =
     : document.location.href;
 
 element.click(openElement);
+bubble.click(openElement);
 
 function openElement() {
   var messages = element.find(".messages");
   var textInput = element.find(".text-box");
-  element.find(">i").hide();
+  element.find(".avatar").hide();
+  bubble.hide();
   element.addClass("expand");
   element.find(".chat").addClass("enter");
   var strLength = textInput.val().length * 2;
@@ -31,7 +34,7 @@ function openElement() {
 
 function closeElement() {
   element.find(".chat").removeClass("enter").hide();
-  element.find(">i").show();
+  element.find(".avatar").show();
   element.removeClass("expand");
   element.find(".header button").off("click", closeElement);
   element.find("#sendMessage").off("click", sendNewMessage);
@@ -101,9 +104,10 @@ function onMetaAndEnter(event) {
   }
 }
 
-if (url == "https://www.lionsbefrienders.org.sg/") {
-  openElement();
-  element.find(".chat-box-header button").click(closeElement);
+setTimeout(fade_out, 10000);
+
+function fade_out() {
+  $(".bubble").fadeOut().empty();
 }
 function getResponse(word) {
   list_of_responses = [

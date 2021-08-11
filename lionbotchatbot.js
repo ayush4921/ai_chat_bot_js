@@ -690,6 +690,9 @@ function getResponse(word) {
         "work at now at lion befrienders",
         "career at LB",
         "careers",
+        "job posting",
+        "where can I find job posting",
+        "get a job posting at lb",
       ],
       responses: [
         'Visit  <a target="_parent" href="https://www.lionsbefrienders.org.sg/careers/" style="color:white;text-decoration: underline;text-decoration-color: white;">Link</a> for the available job opportunities.',
