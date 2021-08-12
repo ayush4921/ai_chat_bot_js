@@ -468,7 +468,10 @@ function sendNewMessage() {
     return;
   }
   window.final_response = getResponse(newMessage);
-  if (window.final_response[0]["question"] != "hi there") {
+  if (
+    window.final_response[0]["question"] != "hi there" &&
+    window.final_response.length > 1
+  ) {
     messagesContainer.append(
       [
         '<li class="self"> Q1) ',
@@ -708,16 +711,26 @@ function getResponse(word) {
 
   const fuse = new Fuse(list_of_responses, options);
   const result = fuse.search(word);
-  console.log(result);
-  let dict_to_return = [
-    {
-      question: result[0]["item"]["patterns"][0],
-      response: result[0]["item"]["responses"][0],
-    },
-    {
-      question: result[1]["item"]["patterns"][0],
-      response: result[1]["item"]["responses"][0],
-    },
-  ];
+  let dict_to_return = [];
+  if (result.length == 1) {
+    dict_to_return = [
+      {
+        question: result[0]["item"]["patterns"][0],
+        response: result[0]["item"]["responses"][0],
+      },
+    ];
+  } else {
+    dict_to_return = [
+      {
+        question: result[0]["item"]["patterns"][0],
+        response: result[0]["item"]["responses"][0],
+      },
+      {
+        question: result[1]["item"]["patterns"][0],
+        response: result[1]["item"]["responses"][0],
+      },
+    ];
+  }
+
   return dict_to_return;
 }
